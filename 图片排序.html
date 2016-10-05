@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		#picList {
+			text-align: center;
+		}
+
+		li {
+			float: left;
+			margin: 0 10px 10px 0;
+			width: 280px;
+			height: 200px;
+		}
+	</style>
+	<script>
+		window.onload = function (){
+
+			var btnL = document.getElementById("btnL");
+			var btnC = document.getElementById("btnC");
+			var btnR = document.getElementById("btnR");
+			var picList = document.getElementById("picList");
+			var arr = [5,6,2,3,1,4,8,7];
+			
+			function picSort(){
+				picList.innerHTML = "";
+				var str = "";
+				for( var i = 0; i < arr.length; i++ ){
+					str += '<li><a href="#"><img src="img/'+ arr[i] +'.png" alt=""></a><span>'+ arr[i] +'</span></li>';
+				}
+				picList.innerHTML = str;
+			}
+
+			btnL.onclick = function (){
+				arr.sort(function (a, b){
+					return a - b;
+				});	
+				picSort();	
+			}
+
+			btnC.onclick = function (){
+				arr.sort(function (a, b){
+					return b - a;
+				})
+				picSort();
+			}
+
+			btnR.onclick = function (){
+				arr.sort(function (a, b){
+					return 0.5 - Math.random();
+				});
+				picSort();
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btnL" value="从小到大" />
+	<input type="button" id="btnC" value="从大到小" />
+	<input type="button" id="btnR" value="打乱顺序" />
+	<ul id="picList">
+		<li>
+			<a href="#">
+				<img src="img/1.png" alt="">
+			</a>
+			<span>1</span>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/2.png" alt="">
+			</a>
+			<span>2</span>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/3.png" alt="">
+			</a>
+			<span>3</span>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/4.png" alt="">
+			</a>
+			<span>4</span>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/5.png" alt="">
+			</a>
+			<span>5</span>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/6.png" alt="">
+			</a>
+			<span>6</span>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/7.png" alt="">
+			</a>
+			<span>7</span>
+		</li>
+		<li>
+			<a href="#">
+				<img src="img/8.png" alt="">
+			</a>
+			<span>8</span>
+		</li>
+	</ul>
+</body>
+</html>
+    
